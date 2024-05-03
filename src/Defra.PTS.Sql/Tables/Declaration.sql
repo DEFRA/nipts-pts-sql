@@ -1,0 +1,6 @@
+﻿CREATE TABLE [dbo].[Declaration]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY,
+	[Name] NVARCHAR(MAX) NOT NULL,
+	[IsActive] BIT NOT NULL
+)

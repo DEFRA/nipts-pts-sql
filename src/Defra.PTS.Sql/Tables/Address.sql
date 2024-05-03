@@ -1,0 +1,17 @@
+﻿CREATE TABLE [dbo].[Address]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT NEWID(), 
+    [AddressLineOne] NVARCHAR(250) NULL, 
+    [AddressLineTwo] NVARCHAR(250) NULL, 
+    [TownOrCity] NVARCHAR(250) NULL, 
+    [County] NVARCHAR(100) NULL, 
+    [PostCode] NVARCHAR(20) NULL, 
+    [CountryName] NVARCHAR(100) NULL,
+    [AddressType] NVARCHAR(20) NULL,
+    [IsActive] BIT NULL,
+    [CreatedBy] UNIQUEIDENTIFIER NULL,
+	[CreatedOn] DATETIME2(7) NULL DEFAULT GETUTCDATE(),
+	[UpdatedBy] UNIQUEIDENTIFIER NULL,
+	[UpdatedOn] DATETIME2(7) NULL DEFAULT GETUTCDATE()
+)
+

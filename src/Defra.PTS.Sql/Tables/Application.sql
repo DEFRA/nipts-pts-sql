@@ -1,0 +1,28 @@
+﻿CREATE TABLE [dbo].[Application]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT NEWID(),
+	[PetId] UNIQUEIDENTIFIER NOT NULL,
+	[UserId] UNIQUEIDENTIFIER NOT NULL,
+	[OwnerId] UNIQUEIDENTIFIER NOT NULL,
+	[OwnerNewName] NVARCHAR(300) NULL,
+	[OwnerNewTelephone] NVARCHAR(50) NULL,
+	[OwnerAddressId] UNIQUEIDENTIFIER NULL,
+	[Status] NVARCHAR(50) NOT NULL,
+	[ReferenceNumber] NVARCHAR(20) NOT NULL,
+	[IsDeclarationSigned] BIT NOT NULL,
+	[IsConsentAgreed] BIT NOT NULL,
+	[IsPrivacyPolicyAgreed] BIT NOT NULL,
+	[DateOfApplication] DATETIME2(7) NOT NULL,
+	[CreatedBy] UNIQUEIDENTIFIER NULL,
+	[CreatedOn] DATETIME2(7) NULL DEFAULT GETUTCDATE(),
+	[UpdatedBy] UNIQUEIDENTIFIER NULL,
+	[UpdatedOn] DATETIME2(7) NULL DEFAULT GETUTCDATE(),
+	[DynamicId] UNIQUEIDENTIFIER NULL, 
+    [DateAuthorised] DATETIME2 NULL, 
+    [DateRejected] DATETIME2 NULL, 
+	[DateRevoked] DATETIME2(7) NULL,
+    CONSTRAINT [FK_Application_Pet] FOREIGN KEY([PetId]) REFERENCES [dbo].[Pet] ([Id]),
+	CONSTRAINT [FK_Application_User] FOREIGN KEY([UserId]) REFERENCES [dbo].[User] ([Id]),
+	CONSTRAINT [FK_Application_Owner] FOREIGN KEY([OwnerId]) REFERENCES [dbo].[Owner] ([Id])
+)
+GO

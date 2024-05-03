@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="4d17c4c3-553f-465c-8ce6-f47f8af4ddc8" ChangeDateTime="01/09/2024 17:03:09">
+    <Property Name="ElementName" Value="[dbo].[Address].[Line1]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Address]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="A" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="bc7ce9c2-c5d8-4c7b-bc92-9efaa0638cf6" ChangeDateTime="01/09/2024 17:03:17">
+    <Property Name="ElementName" Value="[dbo].[Address].[A]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Address]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="AddressLineOne" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="7846af02-06cb-47d8-8831-f8a2ed2a2e0a" ChangeDateTime="01/09/2024 17:03:38">
+    <Property Name="ElementName" Value="[dbo].[Address].[Line2]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Address]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="AddressLineTwo" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="11ca8009-9ee1-4a0e-8825-55e4cc860192" ChangeDateTime="01/09/2024 17:03:44">
+    <Property Name="ElementName" Value="[dbo].[Address].[Town]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Address]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="TownOrCity" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="6620e116-881f-4f42-8040-9c1c86ba2a86" ChangeDateTime="02/06/2024 16:15:24">
+    <Property Name="ElementName" Value="[dbo].[TravelDocument].[DocumentRefrenceNumber]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[TravelDocument]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="DocumentReferenceNumber" />
+  </Operation>
+</Operations>

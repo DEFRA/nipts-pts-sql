@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[Pet]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT NEWID(),
+    [IdentificationType] INT NOT NULL,
+    [MicrochipNumber] NVARCHAR(15) NULL, 
+    [MicrochippedDate] DATE NULL,
+    [SpeciesId] INT NOT NULL,
+    [BreedId] INT NULL,
+    [BreedTypeId] INT NULL,
+    [AdditionalInfoMixedBreedOrUnknown] NVARCHAR(300) NULL,
+    [Name] NVARCHAR(300) NOT NULL,
+    [SexId] INT NOT NULL,
+    [IsDateOfBirthKnown] INT NOT NULL,
+    [DOB] DATE NULL,
+    [ApproximateAge] INT NULL,
+    [ColourId] INT NOT NULL,
+    [OtherColour] NVARCHAR(300) NULL,
+    [HasUniqueFeature] INT NOT NULL,
+    [UniqueFeatureDescription] NVARCHAR(300) NULL,
+    [CreatedBy] UNIQUEIDENTIFIER NULL,
+	[CreatedOn] DATETIME2(7) NULL DEFAULT GETUTCDATE(),
+	[UpdatedBy] UNIQUEIDENTIFIER NULL,
+	[UpdatedOn] DATETIME2(7) NULL DEFAULT GETUTCDATE(),
+    CONSTRAINT [FK_Pet_Breed] FOREIGN KEY([BreedId]) REFERENCES [dbo].[Breed] ([Id]),
+    CONSTRAINT [FK_Pet_Colour] FOREIGN KEY([ColourId]) REFERENCES [dbo].[Colour] ([Id])
+)

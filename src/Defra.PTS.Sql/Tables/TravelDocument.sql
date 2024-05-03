@@ -1,0 +1,21 @@
+﻿CREATE TABLE [dbo].[TravelDocument]
+(
+	[Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT NEWID(),
+	[IssuingAuthorityId] INT NULL,
+	[PetId] UNIQUEIDENTIFIER NOT NULL,
+	[OwnerId] UNIQUEIDENTIFIER NOT NULL,
+	[ApplicationId] UNIQUEIDENTIFIER NOT NULL,
+	[QrCode] IMAGE NULL,
+	[DocumentReferenceNumber] NVARCHAR(20) NOT NULL,
+	[IsLifeTime] BIT NULL,
+	[ValidityStartDate] DATETIME2(7) NULL,
+	[ValidityEndDate] DATETIME2(7) NULL,
+	[StatusId] INT NULL,
+	[DateOfIssue] DATETIME2(7) NULL,
+	[CreatedBy] UNIQUEIDENTIFIER NULL,
+	[CreatedOn] DATETIME2(7) NULL DEFAULT GETUTCDATE(),
+	[UpdatedBy] UNIQUEIDENTIFIER NULL,
+	[UpdatedOn] DATETIME2(7) NULL DEFAULT GETUTCDATE(),
+	[DocumentSignedBy] NVARCHAR(300) NULL, 
+    CONSTRAINT [FK_TravelDocument_Application] FOREIGN KEY([ApplicationId]) REFERENCES [dbo].[Application] ([Id])
+)
