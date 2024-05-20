@@ -60,6 +60,7 @@
     <Folder Include="Tables" />
     <Folder Include="PostDeployment" />
     <Folder Include="Views" />
+    <Folder Include="Stored Procedures" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="Tables\Address.sql" />
@@ -78,6 +79,7 @@
     <PostDeploy Include="PostDeployment\Script.PostDeployment.PetColorUpdate.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </PostDeploy>
+    <Build Include="Stored Procedures\ClearPetApplicationDataByUserEmail.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PostDeployment\Script.PostDeployment.Initial.sql">
