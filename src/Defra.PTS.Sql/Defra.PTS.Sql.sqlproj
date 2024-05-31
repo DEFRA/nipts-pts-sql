@@ -76,10 +76,13 @@
     <None Include="PostDeployment\Script.PostDeployment.BreedUpdate.sql">
       <CopyToOutputDirectory>DoNotCopy</CopyToOutputDirectory>
     </None>
-    <PostDeploy Include="PostDeployment\Script.PostDeployment.PetColorUpdate.sql">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </PostDeploy>
+    <None Include="PostDeployment\Script.PostDeployment.PetColorUpdate.sql">
+      <CopyToOutputDirectory>DoNotCopy</CopyToOutputDirectory>
+    </None>
     <Build Include="Stored Procedures\ClearPetApplicationDataByUserEmail.sql" />
+    <Build Include="Tables\Operator.sql" />
+    <Build Include="Tables\Port.sql" />
+    <Build Include="Tables\Route.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PostDeployment\Script.PostDeployment.Initial.sql">
@@ -93,5 +96,10 @@
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Defra.PTS.Sql.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="PostDeployment\Script.PostDeployment.SailingRoute.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </PostDeploy>
   </ItemGroup>
 </Project>
