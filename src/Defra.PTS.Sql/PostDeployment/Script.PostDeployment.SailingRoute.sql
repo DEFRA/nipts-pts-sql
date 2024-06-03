@@ -47,19 +47,19 @@ GO
 GO
 IF NOT EXISTS (SELECT * FROM [dbo].[Route] Where Id = 1 AND [RouteName] = 'Birkenhead to Belfast (Stena)')
 BEGIN
-	INSERT [dbo].[Route] ([Id],  [RouteName], [DeparturePort], [ArrivalPort], [Operator]) VALUES (1, N'Birkenhead to Belfast (Stena)', 1, 2, 1)
+	INSERT [dbo].[Route] ([Id],  [RouteName], [DeparturePortId], [ArrivalPortId], [OperatorId]) VALUES (1, N'Birkenhead to Belfast (Stena)', 1, 2, 1)
 END
 GO
 
 IF NOT EXISTS (SELECT * FROM [dbo].[Route] Where Id = 2 AND [RouteName] = 'Cairnryan to Larne (P&O)')
 BEGIN
-	INSERT [dbo].[Route] ([Id],  [RouteName], [DeparturePort], [ArrivalPort], [Operator]) VALUES (2, N'Cairnryan to Larne (P&O)', 3, 4, 2)
+	INSERT [dbo].[Route] ([Id],  [RouteName], [DeparturePortId], [ArrivalPortId], [OperatorId]) VALUES (2, N'Cairnryan to Larne (P&O)', 3, 4, 2)
 END
 GO
 
 IF NOT EXISTS (SELECT * FROM [dbo].[Route] Where Id = 3 AND [RouteName] = 'Loch Ryan to Belfast (Stena)')
 BEGIN
-	INSERT [dbo].[Route] ([Id],  [RouteName], [DeparturePort], [ArrivalPort], [Operator]) VALUES (3, N'Loch Ryan to Belfast (Stena)', 5, 2, 1)
+	INSERT [dbo].[Route] ([Id],  [RouteName], [DeparturePortId], [ArrivalPortId], [OperatorId]) VALUES (3, N'Loch Ryan to Belfast (Stena)', 5, 2, 1)
 END
 GO
 
