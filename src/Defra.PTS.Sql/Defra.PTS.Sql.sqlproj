@@ -80,9 +80,15 @@
       <CopyToOutputDirectory>DoNotCopy</CopyToOutputDirectory>
     </None>
     <Build Include="Stored Procedures\ClearPetApplicationDataByUserEmail.sql" />
+    <Build Include="Tables\Outcome.sql" />
+    <Build Include="Tables\PasengerType.sql" />
+    <Build Include="Tables\Role.sql" />
     <Build Include="Tables\Operator.sql" />
-    <Build Include="Tables\Port.sql" />
     <Build Include="Tables\Route.sql" />
+    <Build Include="Tables\CheckOutcome.sql" />
+    <Build Include="Tables\Checker.sql" />
+    <Build Include="Tables\Port.sql" />
+    <Build Include="Tables\CheckSummary.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PostDeployment\Script.PostDeployment.Initial.sql">
