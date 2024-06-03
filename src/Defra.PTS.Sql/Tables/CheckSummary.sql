@@ -3,7 +3,7 @@
     GBCheck bit,
     LinkedCheckId uniqueidentifier,
     CheckerId uniqueidentifier,
-    [Route] int,
+    [RouteId] int,
     [Date] date,
     ScheduledSailingTime time,
     ApplicationId uniqueidentifier,
@@ -17,7 +17,7 @@
     FOREIGN KEY (OwnerId) REFERENCES [dbo].[Owner]([Id]),
     FOREIGN KEY ([ApplicationId]) REFERENCES [dbo].[Application]([Id]),
     FOREIGN KEY ([TravelDocumentId]) REFERENCES [dbo].[TravelDocument]([Id]),
-    FOREIGN KEY ([Route]) REFERENCES [dbo].[Route]([Id]),
+    FOREIGN KEY ([RouteId]) REFERENCES [dbo].[Route]([Id]),
     FOREIGN KEY (CheckerId) REFERENCES [dbo].[Checker]([Id]),
     FOREIGN KEY (LinkedCheckId) REFERENCES [dbo].[CheckSummary]([Id]),
     

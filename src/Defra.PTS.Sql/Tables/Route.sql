@@ -1,10 +1,10 @@
 ﻿CREATE TABLE [dbo].[Route] (
     [Id] INT PRIMARY KEY,
     [RouteName] NVARCHAR(300) NOT NULL,
-    [DeparturePort] INT NOT NULL,
-    [ArrivalPort] INT NOT NULL,
-    [Operator] INT NOT NULL,
-    FOREIGN KEY ([DeparturePort]) REFERENCES [dbo].[Port]([Id]),
-    FOREIGN KEY ([ArrivalPort]) REFERENCES [dbo].[Port]([Id]),
-    FOREIGN KEY ([Operator]) REFERENCES [dbo].[Operator]([Id])
+    [DeparturePortId] INT NOT NULL,
+    [ArrivalPortId] INT NOT NULL,
+    [OperatorId] INT NOT NULL,
+    FOREIGN KEY ([DeparturePortId]) REFERENCES [dbo].[Port]([Id]),
+    FOREIGN KEY ([ArrivalPortId]) REFERENCES [dbo].[Port]([Id]),
+    FOREIGN KEY ([OperatorId]) REFERENCES [dbo].[Operator]([Id])
 );
