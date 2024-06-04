@@ -1,7 +1,5 @@
 ﻿CREATE TABLE [dbo].[CheckOutcome] (
-    Id UNIQUEIDENTIFIER PRIMARY KEY,
-    GBCheck bit NULL,
-    CheckOutcome bit NULL,
+    Id UNIQUEIDENTIFIER PRIMARY KEY,        
     PTDFailNoPTD bit NULL,
     PTDFailStatusAwaitingApproval bit NULL,
     PTDFailStatusUnsuccessfulRevokedSuspended bit NULL,
