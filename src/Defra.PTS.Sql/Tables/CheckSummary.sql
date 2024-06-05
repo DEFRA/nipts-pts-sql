@@ -1,0 +1,21 @@
+﻿CREATE TABLE [dbo].[CheckSummary] (
+    Id uniqueidentifier PRIMARY KEY,
+    GBCheck bit NULL,
+    LinkedCheckId uniqueidentifier,
+    CheckerId uniqueidentifier,
+    RouteId int,
+    [Date] date,
+    ScheduledSailingTime time,
+    ApplicationId uniqueidentifier,
+    TravelDocumentId uniqueidentifier,
+    ChipNumber nvarchar(15) ,    
+    CheckOutcome bit NULL,
+    CheckOutcomeId uniqueidentifier,    
+    FOREIGN KEY (CheckOutcomeId) REFERENCES [dbo].[CheckOutcome]([Id]),    
+    FOREIGN KEY ([ApplicationId]) REFERENCES [dbo].[Application]([Id]),
+    FOREIGN KEY ([TravelDocumentId]) REFERENCES [dbo].[TravelDocument]([Id]),
+    FOREIGN KEY ([RouteId]) REFERENCES [dbo].[Route]([Id]),
+    FOREIGN KEY (CheckerId) REFERENCES [dbo].[Checker]([Id]),
+    FOREIGN KEY (LinkedCheckId) REFERENCES [dbo].[CheckSummary]([Id]),
+    
+);
