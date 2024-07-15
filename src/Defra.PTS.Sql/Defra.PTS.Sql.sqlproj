@@ -79,9 +79,6 @@
     <None Include="PostDeployment\Script.PostDeployment.PetColorUpdate.sql">
       <CopyToOutputDirectory>DoNotCopy</CopyToOutputDirectory>
     </None>
-    <None Include="PostDeployment\Script.PostDeployment.Outcome.sql">
-      <CopyToOutputDirectory>DoNotCopy</CopyToOutputDirectory>
-    </None>
     <Build Include="Stored Procedures\ClearPetApplicationDataByUserEmail.sql" />
     <Build Include="Tables\Outcome.sql" />
     <Build Include="Tables\PasengerType.sql" />
