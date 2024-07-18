@@ -14,13 +14,13 @@ SET IDENTITY_INSERT [dbo].[Breed] ON
 GO
 IF EXISTS (SELECT * FROM [dbo].[Breed] Where Id = 99 AND [Name] = 'Mixed breed or unknown')
 BEGIN
-	UPDATE [dbo].[Breed] SET [Name] = 'Mixed-breed or unknown'
+	UPDATE [dbo].[Breed] SET [Name] = 'Mixed-breed or unknown' WHERE [Name] = 'Mixed breed or unknown'
 END
 GO
 
 IF EXISTS (SELECT * FROM [dbo].[Breed] Where Id = 100 AND [Name] = 'Mixed breed or unknown')
 BEGIN
-	UPDATE [dbo].[Breed] SET [Name] = 'Mixed-breed or unknown'
+	UPDATE [dbo].[Breed] SET [Name] = 'Mixed-breed or unknown' WHERE [Name] = 'Mixed breed or unknown'
 END
 GO
 
