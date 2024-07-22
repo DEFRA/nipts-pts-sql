@@ -73,9 +73,9 @@
     <Build Include="Tables\User.sql" />
     <Build Include="Tables\Declaration.sql" />
     <Build Include="Views\VwApplications.sql" />
-    <None Include="PostDeployment\Script.PostDeployment.BreedUpdate.sql">
+    <PostDeploy Include="PostDeployment\Script.PostDeployment.BreedUpdate.sql">
       <CopyToOutputDirectory>DoNotCopy</CopyToOutputDirectory>
-    </None>
+    </PostDeploy>
     <None Include="PostDeployment\Script.PostDeployment.PetColorUpdate.sql">
       <CopyToOutputDirectory>DoNotCopy</CopyToOutputDirectory>
     </None>
@@ -89,9 +89,9 @@
     <Build Include="Tables\Checker.sql" />
     <Build Include="Tables\Port.sql" />
     <Build Include="Tables\CheckSummary.sql" />
-    <PostDeploy Include="PostDeployment\Script.PostDeployment.Outcome.sql">
+    <None Include="PostDeployment\Script.PostDeployment.Outcome.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </PostDeploy>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="PostDeployment\Script.PostDeployment.Initial.sql">
