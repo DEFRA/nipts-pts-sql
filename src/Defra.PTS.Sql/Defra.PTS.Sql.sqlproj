@@ -89,9 +89,10 @@
     <Build Include="Tables\Checker.sql" />
     <Build Include="Tables\Port.sql" />
     <Build Include="Tables\CheckSummary.sql" />
-    <PostDeploy Include="PostDeployment\Script.PostDeployment.Outcome.sql">
+    <None Include="PostDeployment\Script.PostDeployment.Outcome.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </PostDeploy>
+    </None>
+    <PostDeploy Include="PostDeployment\Script.PostDeployment.CatBreedUpdate.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PostDeployment\Script.PostDeployment.Initial.sql">
