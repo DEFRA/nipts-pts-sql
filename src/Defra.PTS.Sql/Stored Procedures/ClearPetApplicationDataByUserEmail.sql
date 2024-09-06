@@ -86,6 +86,20 @@ SELECT		    @checkerIds = STUFF(
 		IF @applicationIds IS NOT NULL AND LEN(@applicationIds) > 0
 		BEGIN
 
+			IF @checkSummaryIds IS NOT NULL AND LEN(@checkSummaryIds) > 0
+			BEGIN
+				PRINT 'CheckSummary Ids To Delete : ' + @checkSummaryIds
+				IF @IsDelete = 0
+				BEGIN
+					SELECT * FROM [dbo].[CheckSummary] WHERE Id IN (SELECT value FROM STRING_SPLIT(@checkSummaryIds, ','));
+				END
+				ELSE
+				BEGIN
+					DELETE FROM [dbo].[CheckSummary] WHERE Id IN (SELECT value FROM STRING_SPLIT(@checkSummaryIds, ','));
+				END
+			END
+
+
 			IF @checkerIds IS NOT NULL AND LEN(@checkerIds) > 0
 			BEGIN
 				PRINT 'Checker Ids To Delete : ' + @checkerIds
@@ -111,21 +125,6 @@ SELECT		    @checkerIds = STUFF(
 					DELETE FROM [dbo].[CheckOutcome] WHERE Id IN (SELECT value FROM STRING_SPLIT(@checkOutcomeIds, ','));
 				END
 			END
-
-
-		   IF @checkSummaryIds IS NOT NULL AND LEN(@checkSummaryIds) > 0
-		   BEGIN
-			   PRINT 'CheckSummary Ids To Delete : ' + @checkSummaryIds
-			   IF @IsDelete = 0
-			   BEGIN
-					SELECT * FROM [dbo].[CheckSummary] WHERE Id IN (SELECT value FROM STRING_SPLIT(@checkSummaryIds, ','));
-			   END
-			   ELSE
-			   BEGIN
-					DELETE FROM [dbo].[CheckSummary] WHERE Id IN (SELECT value FROM STRING_SPLIT(@checkSummaryIds, ','));
-			   END
-		   END
-
 
 			PRINT 'Application Ids To Delete TravelDocument and Application: ' + @applicationOwnerIds
 			IF @IsDelete = 0
