@@ -118,11 +118,11 @@ SELECT		    @checkerIds = STUFF(
 			   PRINT 'CheckSummary Ids To Delete : ' + @checkSummaryIds
 			   IF @IsDelete = 0
 			   BEGIN
-					SELECT * FROM [dbo].[CheckSummary] WHERE ApplicationId IN (SELECT value FROM STRING_SPLIT(@applicationIds, ',')) OR [TravelDocumentId] IN (SELECT value FROM STRING_SPLIT(@travelDocumentIds, ','));
+					SELECT * FROM [dbo].[CheckSummary] WHERE Id IN (SELECT value FROM STRING_SPLIT(@checkSummaryIds, ','));
 			   END
 			   ELSE
 			   BEGIN
-					DELETE FROM [dbo].[CheckSummary] WHERE ApplicationId IN (SELECT value FROM STRING_SPLIT(@applicationIds, ',')) OR [TravelDocumentId] IN (SELECT value FROM STRING_SPLIT(@travelDocumentIds, ','));
+					DELETE FROM [dbo].[CheckSummary] WHERE Id IN (SELECT value FROM STRING_SPLIT(@checkSummaryIds, ','));
 			   END
 		   END
 
