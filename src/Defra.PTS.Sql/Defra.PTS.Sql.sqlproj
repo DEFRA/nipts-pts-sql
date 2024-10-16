@@ -85,7 +85,6 @@
     <Build Include="Tables\Role.sql" />
     <Build Include="Tables\Operator.sql" />
     <Build Include="Tables\Route.sql" />
-    <Build Include="Tables\CheckOutcome.sql" />
     <Build Include="Tables\Checker.sql" />
     <Build Include="Tables\Port.sql" />
     <Build Include="Tables\CheckSummary.sql" />
@@ -94,11 +93,15 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="PostDeployment\Script.PostDeployment.CatBreedUpdate.sql" />
+    <Build Include="Tables\CheckOutcome.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PostDeployment\Script.PostDeployment.Initial.sql">
       <CopyToOutputDirectory>DoNotCopy</CopyToOutputDirectory>
     </None>
+    <PreDeploy Include="PostDeployment\Script.PreDeployment.CheckOutcome.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </PreDeploy>
   </ItemGroup>
   <ItemGroup>
     <None Include="PostDeployment\Script.PreDeployment.Initial.sql">
@@ -109,8 +112,8 @@
     <RefactorLog Include="Defra.PTS.Sql.refactorlog" />
   </ItemGroup>
   <ItemGroup>
-    <PostDeploy Include="PostDeployment\Script.PostDeployment.SailingRoute.sql">
+    <None Include="PostDeployment\Script.PostDeployment.SailingRoute.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </PostDeploy>
+    </None>
   </ItemGroup>
 </Project>
