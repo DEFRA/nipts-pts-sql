@@ -5,5 +5,7 @@
     [LastName] NVARCHAR(300),
     [Role] INT,
     [PortLocation] NVARCHAR(300),
-    FOREIGN KEY ([Role]) REFERENCES [dbo].[Role]([Id])
+    [OrganisationId] UNIQUEIDENTIFIER NULL, 
+    FOREIGN KEY ([Role]) REFERENCES [dbo].[Role]([Id]),
+    FOREIGN KEY ([OrganisationId]) REFERENCES [dbo].[Organisation]([Id])
 );
