@@ -90,17 +90,21 @@
     <Build Include="Tables\CheckSummary.sql" />
     <Build Include="Tables\Organisation.sql" />
     <None Include="PostDeployment\Script.PostDeployment.Outcome.sql">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>DoNotCopy</CopyToOutputDirectory>
     </None>
     <None Include="PostDeployment\Script.PostDeployment.CatBreedUpdate.sql" />
     <Build Include="Tables\CheckOutcome.sql" />
+    <Build Include="Tables\Signatories.sql" />
+    <PostDeploy Include="PostDeployment\Script.PostDeployment.Signatories.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </PostDeploy>
   </ItemGroup>
   <ItemGroup>
     <None Include="PostDeployment\Script.PostDeployment.Initial.sql">
       <CopyToOutputDirectory>DoNotCopy</CopyToOutputDirectory>
     </None>
     <PreDeploy Include="PostDeployment\Script.PreDeployment.CheckOutcome.sql">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>DoNotCopy</CopyToOutputDirectory>
     </PreDeploy>
   </ItemGroup>
   <ItemGroup>
@@ -113,7 +117,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="PostDeployment\Script.PostDeployment.SailingRoute.sql">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>DoNotCopy</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 </Project>
