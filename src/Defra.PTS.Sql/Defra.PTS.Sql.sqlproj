@@ -103,9 +103,9 @@
     <None Include="PostDeployment\Script.PostDeployment.Initial.sql">
       <CopyToOutputDirectory>DoNotCopy</CopyToOutputDirectory>
     </None>
-    <PreDeploy Include="PostDeployment\Script.PreDeployment.CheckOutcome.sql">
+    <None Include="PostDeployment\Script.PreDeployment.CheckOutcome.sql">
       <CopyToOutputDirectory>DoNotCopy</CopyToOutputDirectory>
-    </PreDeploy>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="PostDeployment\Script.PreDeployment.Initial.sql">
