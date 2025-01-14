@@ -3,7 +3,7 @@
     GBCheck bit NULL,
     LinkedCheckId uniqueidentifier,
     CheckerId uniqueidentifier,
-    [FlightNo] NVARCHAR(6) NULL, 
+    [FlightNo] NVARCHAR(8) NULL, 
     RouteId int,
     [Date] date,
     ScheduledSailingTime time,
