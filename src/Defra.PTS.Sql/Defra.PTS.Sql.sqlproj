@@ -46,6 +46,8 @@
     <DefineTrace>true</DefineTrace>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <NoWarn>
+    </NoWarn>
   </PropertyGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
@@ -95,9 +97,9 @@
     <None Include="PostDeployment\Script.PostDeployment.CatBreedUpdate.sql" />
     <Build Include="Tables\CheckOutcome.sql" />
     <Build Include="Tables\Signatories.sql" />
-    <PostDeploy Include="PostDeployment\Script.PostDeployment.Signatories.sql">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </PostDeploy>
+    <None Include="PostDeployment\Script.PostDeployment.Signatories.sql">
+      <CopyToOutputDirectory>DoNotCopy</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="PostDeployment\Script.PostDeployment.Initial.sql">
@@ -106,6 +108,12 @@
     <None Include="PostDeployment\Script.PreDeployment.CheckOutcome.sql">
       <CopyToOutputDirectory>DoNotCopy</CopyToOutputDirectory>
     </None>
+    <None Include="Defra.PTS.Sql.publish.xml" />
+    <None Include="PostDeployment\SampleTestAddFour.sql" />
+    <None Include="PostDeployment\SampleTestAddFive.sql" />
+    <None Include="PostDeployment\SampleTestDeleteFour.sql" />
+    <None Include="PostDeployment\SampleTestDeleteFive.sql" />
+    <None Include="PostDeployment\SampleTestDeleteThree.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PostDeployment\Script.PreDeployment.Initial.sql">
@@ -119,5 +127,15 @@
     <None Include="PostDeployment\Script.PostDeployment.SailingRoute.sql">
       <CopyToOutputDirectory>DoNotCopy</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="PostDeployment\Script.PostDeployment.sql">
+      <CopyToOutputDirectory>DoNotCopy</CopyToOutputDirectory>
+    </PostDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <PreDeploy Include="PostDeployment\Script.PreDeployment.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </PreDeploy>
   </ItemGroup>
 </Project>
