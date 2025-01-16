@@ -9,6 +9,4 @@
                SELECT * FROM [$(TableName)]					
 --------------------------------------------------------------------------------------
 */
-:r .\SampleTestDeleteThree.sql
-:r .\SampleTestDeleteFour.sql
-:r .\SampleTestDeleteFive.sql
+
