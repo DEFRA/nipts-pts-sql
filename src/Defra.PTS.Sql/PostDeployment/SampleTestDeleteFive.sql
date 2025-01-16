@@ -1,1 +1,0 @@
-﻿DELETE FROM [dbo].[PasengerType] WHERE ID = 5

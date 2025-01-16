@@ -109,11 +109,6 @@
       <CopyToOutputDirectory>DoNotCopy</CopyToOutputDirectory>
     </None>
     <None Include="Defra.PTS.Sql.publish.xml" />
-    <None Include="PostDeployment\SampleTestAddFour.sql" />
-    <None Include="PostDeployment\SampleTestAddFive.sql" />
-    <None Include="PostDeployment\SampleTestDeleteFour.sql" />
-    <None Include="PostDeployment\SampleTestDeleteFive.sql" />
-    <None Include="PostDeployment\SampleTestDeleteThree.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PostDeployment\Script.PreDeployment.Initial.sql">
