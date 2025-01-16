@@ -9,6 +9,3 @@ Post-Deployment Script Template
                SELECT * FROM [$(TableName)]					
 --------------------------------------------------------------------------------------
 */
-:r .\Script.PostDeployment.Signatories.sql
-:r .\SampleTestAddFour.sql
-:r .\SampleTestAddFive.sql
