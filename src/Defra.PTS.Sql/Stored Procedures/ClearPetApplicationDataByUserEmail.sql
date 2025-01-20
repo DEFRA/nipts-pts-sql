@@ -23,8 +23,7 @@ BEGIN
             @userAddressIds VARCHAR(MAX),
 			@travelDocumentIds VARCHAR(MAX),
 			@checkSummaryIds VARCHAR(MAX),
-			@checkOutcomeIds VARCHAR(MAX),
-			@checkerIds VARCHAR(MAX);
+			@checkOutcomeIds VARCHAR(MAX);
 
     -- Initialize variables to empty strings
     SET @applicationIds = '';
@@ -37,7 +36,6 @@ BEGIN
 	SET @travelDocumentIds = '';
 	SET @checkSummaryIds = '';
 	SET @checkOutcomeIds = '';
-	SET @checkerIds = '';
 
 	IF @userEmail IS NOT NULL
 	BEGIN
@@ -77,11 +75,6 @@ SELECT			@checkOutcomeIds = STUFF(
                                    FROM [dbo].[CheckSummary]
                                    WHERE ApplicationId IN (SELECT value FROM STRING_SPLIT(@applicationIds, ',')) OR [TravelDocumentId] IN (SELECT value FROM STRING_SPLIT(@travelDocumentIds, ','))
                                    FOR XML PATH('')), 1, 1, '');
-SELECT		    @checkerIds = STUFF(
-								  (SELECT DISTINCT ',' + CAST([CheckerId] AS VARCHAR(MAX))
-                                   FROM [dbo].[CheckSummary]
-                                   WHERE ApplicationId IN (SELECT value FROM STRING_SPLIT(@applicationIds, ',')) OR [TravelDocumentId] IN (SELECT value FROM STRING_SPLIT(@travelDocumentIds, ','))
-                                   FOR XML PATH('')), 1, 1, '');
 
 		IF @applicationIds IS NOT NULL AND LEN(@applicationIds) > 0
 		BEGIN
@@ -99,19 +92,6 @@ SELECT		    @checkerIds = STUFF(
 				END
 			END
 
-
-			IF @checkerIds IS NOT NULL AND LEN(@checkerIds) > 0
-			BEGIN
-				PRINT 'Checker Ids To Delete : ' + @checkerIds
-				IF @IsDelete = 0
-				BEGIN
-					SELECT * FROM [dbo].[Checker] WHERE Id IN (SELECT value FROM STRING_SPLIT(@checkerIds, ','));
-				END
-				ELSE
-				BEGIN
-					DELETE FROM [dbo].[Checker] WHERE Id IN (SELECT value FROM STRING_SPLIT(@checkerIds, ','));
-				END
-			END
 
 			IF @checkOutcomeIds IS NOT NULL AND LEN(@checkOutcomeIds) > 0
 			BEGIN
