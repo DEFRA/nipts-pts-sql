@@ -17,8 +17,6 @@
 	[UpdatedBy] UNIQUEIDENTIFIER NULL,
 	[UpdatedOn] DATETIME2(7) NULL DEFAULT GETUTCDATE(),
     FOREIGN KEY (CheckOutcomeId) REFERENCES [dbo].[CheckOutcome]([Id]),    
-    FOREIGN KEY ([ApplicationId]) REFERENCES [dbo].[Application]([Id]),
-    FOREIGN KEY ([TravelDocumentId]) REFERENCES [dbo].[TravelDocument]([Id]),
     FOREIGN KEY ([RouteId]) REFERENCES [dbo].[Route]([Id]),
     FOREIGN KEY (CheckerId) REFERENCES [dbo].[Checker]([Id]),
     FOREIGN KEY (LinkedCheckId) REFERENCES [dbo].[CheckSummary]([Id]),    

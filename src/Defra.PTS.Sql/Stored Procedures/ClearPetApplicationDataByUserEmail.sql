@@ -21,10 +21,7 @@ BEGIN
             @applicationOwnerAddressIds VARCHAR(MAX),
             @ownerAddressIds VARCHAR(MAX),
             @userAddressIds VARCHAR(MAX),
-			@travelDocumentIds VARCHAR(MAX),
-			@checkSummaryIds VARCHAR(MAX),
-			@checkOutcomeIds VARCHAR(MAX),
-			@checkerIds VARCHAR(MAX);
+			@travelDocumentIds VARCHAR(MAX);
 
     -- Initialize variables to empty strings
     SET @applicationIds = '';
@@ -35,9 +32,6 @@ BEGIN
     SET @ownerAddressIds = '';
     SET @userAddressIds = '';
 	SET @travelDocumentIds = '';
-	SET @checkSummaryIds = '';
-	SET @checkOutcomeIds = '';
-	SET @checkerIds = '';
 
 	IF @userEmail IS NOT NULL
 	BEGIN
@@ -67,64 +61,9 @@ SELECT			@travelDocumentIds = STUFF((SELECT DISTINCT ',' + CAST([Id] AS VARCHAR(
                                    FROM [dbo].[TravelDocument]
                                    WHERE [ApplicationId] IN (SELECT value FROM STRING_SPLIT(@applicationIds, ','))
                                    FOR XML PATH('')), 1, 1, '');
-SELECT			@checkSummaryIds = STUFF(
-								  (SELECT DISTINCT ',' + CAST([Id] AS VARCHAR(MAX))
-                                   FROM [dbo].[CheckSummary]
-                                   WHERE ApplicationId IN (SELECT value FROM STRING_SPLIT(@applicationIds, ',')) OR [TravelDocumentId] IN (SELECT value FROM STRING_SPLIT(@travelDocumentIds, ','))
-                                   FOR XML PATH('')), 1, 1, '');
-SELECT			@checkOutcomeIds = STUFF(
-								  (SELECT DISTINCT ',' + CAST([CheckOutcomeId] AS VARCHAR(MAX))
-                                   FROM [dbo].[CheckSummary]
-                                   WHERE ApplicationId IN (SELECT value FROM STRING_SPLIT(@applicationIds, ',')) OR [TravelDocumentId] IN (SELECT value FROM STRING_SPLIT(@travelDocumentIds, ','))
-                                   FOR XML PATH('')), 1, 1, '');
-SELECT		    @checkerIds = STUFF(
-								  (SELECT DISTINCT ',' + CAST([CheckerId] AS VARCHAR(MAX))
-                                   FROM [dbo].[CheckSummary]
-                                   WHERE ApplicationId IN (SELECT value FROM STRING_SPLIT(@applicationIds, ',')) OR [TravelDocumentId] IN (SELECT value FROM STRING_SPLIT(@travelDocumentIds, ','))
-                                   FOR XML PATH('')), 1, 1, '');
 
 		IF @applicationIds IS NOT NULL AND LEN(@applicationIds) > 0
 		BEGIN
-
-			IF @checkSummaryIds IS NOT NULL AND LEN(@checkSummaryIds) > 0
-			BEGIN
-				PRINT 'CheckSummary Ids To Delete : ' + @checkSummaryIds
-				IF @IsDelete = 0
-				BEGIN
-					SELECT * FROM [dbo].[CheckSummary] WHERE Id IN (SELECT value FROM STRING_SPLIT(@checkSummaryIds, ','));
-				END
-				ELSE
-				BEGIN
-					DELETE FROM [dbo].[CheckSummary] WHERE Id IN (SELECT value FROM STRING_SPLIT(@checkSummaryIds, ','));
-				END
-			END
-
-
-			IF @checkerIds IS NOT NULL AND LEN(@checkerIds) > 0
-			BEGIN
-				PRINT 'Checker Ids To Delete : ' + @checkerIds
-				IF @IsDelete = 0
-				BEGIN
-					SELECT * FROM [dbo].[Checker] WHERE Id IN (SELECT value FROM STRING_SPLIT(@checkerIds, ','));
-				END
-				ELSE
-				BEGIN
-					DELETE FROM [dbo].[Checker] WHERE Id IN (SELECT value FROM STRING_SPLIT(@checkerIds, ','));
-				END
-			END
-
-			IF @checkOutcomeIds IS NOT NULL AND LEN(@checkOutcomeIds) > 0
-			BEGIN
-				PRINT 'CheckOutcome Ids To Delete : ' + @checkOutcomeIds
-				IF @IsDelete = 0
-				BEGIN
-					SELECT * FROM [dbo].[CheckOutcome] WHERE Id IN (SELECT value FROM STRING_SPLIT(@checkOutcomeIds, ','));
-				END
-				ELSE
-				BEGIN
-					DELETE FROM [dbo].[CheckOutcome] WHERE Id IN (SELECT value FROM STRING_SPLIT(@checkOutcomeIds, ','));
-				END
-			END
 
 			PRINT 'Application Ids To Delete TravelDocument and Application: ' + @applicationOwnerIds
 			IF @IsDelete = 0
