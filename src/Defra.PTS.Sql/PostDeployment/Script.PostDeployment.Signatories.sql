@@ -12,6 +12,27 @@ BEGIN
 END
 GO
 
+
+
+GO
+IF EXISTS (SELECT * FROM [dbo].[PasengerType] Where Id = 1 AND [Type] = 'Foot passenger')
+BEGIN
+	UPDATE [dbo].[PasengerType] SET [Type] = 'Ferry foot passenger' WHERE Id = 1  AND [Type] = 'Foot passenger'
+END
+GO
+
+IF EXISTS (SELECT * FROM [dbo].[PasengerType] Where Id = 2 AND [Type] = 'Vehicle')
+BEGIN
+	UPDATE [dbo].[PasengerType] SET [Type] = 'Vehicle on ferry' WHERE Id = 2 AND [Type] = 'Vehicle'
+END
+GO
+
+IF NOT EXISTS (SELECT * FROM [dbo].[PasengerType] Where Id = 3 AND [Type] = 'Airline')
+BEGIN
+	INSERT [dbo].[PasengerType] ([Id], [Type]) VALUES (3, N'Airline')
+END
+GO
+
 -- Insert Master Data for APHA Chief Vet Officer
 IF NOT EXISTS (SELECT 1 FROM Signatories WHERE Name = 'Andrew Soldan')
 BEGIN
