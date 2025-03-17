@@ -16,7 +16,7 @@
 	[CreatedOn] DATETIME2(7) NULL DEFAULT GETUTCDATE(),
 	[UpdatedBy] UNIQUEIDENTIFIER NULL,
 	[UpdatedOn] DATETIME2(7) NULL DEFAULT GETUTCDATE(),
-    [Superseded] BIT NULL, 
+    [Superseded] BIT NULL DEFAULT false, 
     FOREIGN KEY (CheckOutcomeId) REFERENCES [dbo].[CheckOutcome]([Id]),    
     FOREIGN KEY ([ApplicationId]) REFERENCES [dbo].[Application]([Id]),
     FOREIGN KEY ([TravelDocumentId]) REFERENCES [dbo].[TravelDocument]([Id]),
