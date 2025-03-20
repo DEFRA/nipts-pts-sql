@@ -35,6 +35,11 @@ BEGIN
 	DECLARE @FromDate DATE;
 	DECLARE @CutOffTime TIME(7);
 
+	DECLARE @Pass  VARCHAR(7) = 'Pass';
+	DECLARE @Fail  VARCHAR(20) = 'Fail/Refer to SPS'
+	DECLARE @Allowed  VARCHAR(20) = 'Allowed to travel'
+	DECLARE @NotAllowed  VARCHAR(25) ='Not allowed to travel'
+
 	SET @ToDate = CAST(DATEADD(HOUR, @Duration, @CurrentDateTime) AS DATE);
 	SET @FromDate = CAST(DATEADD(HOUR, @Duration - @ExtractIntervalInHours, @CurrentDateTime) AS DATE);
 	SET @CutOffTime = CAST(DATEADD(MINUTE, DATEDIFF(MINUTE, 0, DATEADD(HOUR, @Duration, @CurrentDateTime)), 0) AS TIME(7));
@@ -45,18 +50,18 @@ BEGIN
 		  ,(SELECT [DocumentReferenceNumber] FROM [dbo].[TravelDocument] WHERE [Id] = chsOuter.[TravelDocumentId]) AS [PTD number]
 		  ,(SELECT [Status] FROM [dbo].[Application] WHERE Id = chsOuter.[ApplicationId]) AS [Document Status at time of extract]
 		  ,CASE [CheckOutcome]
-				WHEN 1 THEN 'Pass'
-				WHEN 0 THEN 'Fail/Refer to SPS'
+				WHEN 1 THEN @Pass
+				WHEN 0 THEN @Fail
 				ELSE ''
 			END AS  [GB Check Status]
 		   ,CASE (SELECT [CheckOutcome] FROM [dbo].[CheckSummary] WHERE Id = chsOuter.LinkedCheckId AND [GBCheck] = 0)
-				WHEN 1 THEN 'Pass'
-				WHEN 0 THEN 'Fail/Refer to SPS'
+				WHEN 1 THEN @Pass
+				WHEN 0 THEN @Fail
 				ELSE ''
 			END AS  [NI Check Status]
 		  ,CASE (SELECT [SPSOutcome] FROM [dbo].[CheckOutcome] WHERE Id = chsOuter.CheckOutcomeId)
-			WHEN 1 THEN 'Allowed to travel'
-			WHEN 0 THEN 'Not allowed to travel'
+			WHEN 1 THEN @Allowed
+			WHEN 0 THEN @NotAllowed
 			ELSE ''
 		   END AS [SPSOutcome]
 		  ,ISNULL((SELECT [RouteName] FROM [dbo].[Route] WHERE [Id] = [RouteId]), '') AS [Ferry Route]
@@ -109,14 +114,14 @@ BEGIN
 		  ,(SELECT [DocumentReferenceNumber] FROM [dbo].[TravelDocument] WHERE [Id] = chsOuter.[TravelDocumentId]) AS [PTD number]
 		  ,(SELECT [Status] FROM [dbo].[Application] WHERE Id = chsOuter.[ApplicationId]) AS [Document Status at time of extract]
 		  ,CASE [CheckOutcome]
-			WHEN 1 THEN 'Pass'
-			WHEN 0 THEN 'Fail/Refer to SPS'
+			WHEN 1 THEN @Pass
+			WHEN 0 THEN @Fail
 			ELSE ''
 		   END AS  [GB Check Status]
 		  ,'' AS [NI Check Status]
 		  ,CASE (SELECT [SPSOutcome] FROM [dbo].[CheckOutcome] WHERE Id = chsOuter.CheckOutcomeId) 
-			WHEN 1 THEN 'Allowed to travel'
-			WHEN 0 THEN 'Not allowed to travel'
+			WHEN 1 THEN @Allowed
+			WHEN 0 THEN @NotAllowed
 			ELSE ''
 		   END AS [SPSOutcome]
 		  ,ISNULL((SELECT [RouteName] FROM [dbo].[Route] WHERE [Id] = [RouteId]), '') AS [Ferry Route]
@@ -168,13 +173,13 @@ BEGIN
 			  ,(SELECT [Status] FROM [dbo].[Application] WHERE Id = chsOuter.[ApplicationId]) AS [Document Status at time of extract]
 			  ,'' AS [GB Check Status]
 			  ,CASE [CheckOutcome]
-				WHEN 1 THEN 'Pass'
-				WHEN 0 THEN 'Fail/Refer to SPS'
+				WHEN 1 THEN @Pass
+				WHEN 0 THEN @Fail
 				ELSE ''
 				END AS  [NI Check Status]
 			  ,CASE (SELECT [SPSOutcome] FROM [dbo].[CheckOutcome] WHERE Id = chsOuter.CheckOutcomeId) 
-				WHEN 1 THEN 'Allowed to travel'
-				WHEN 0 THEN 'Not allowed to travel'
+				WHEN 1 THEN @Allowed
+				WHEN 0 THEN @NotAllowed
 				ELSE ''
 			   END AS [SPSOutcome]
 			  ,ISNULL((SELECT [RouteName] FROM [dbo].[Route] WHERE [Id] = [RouteId]), '') AS [Ferry Route]
