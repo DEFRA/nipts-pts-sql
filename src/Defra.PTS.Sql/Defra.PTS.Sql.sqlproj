@@ -100,7 +100,6 @@
     <None Include="PostDeployment\Script.PostDeployment.Signatories.sql">
       <CopyToOutputDirectory>DoNotCopy</CopyToOutputDirectory>
     </None>
-    <Build Include="Stored Procedures\CheckReportData.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PostDeployment\Script.PostDeployment.Initial.sql">
