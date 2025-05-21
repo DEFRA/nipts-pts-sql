@@ -1,2 +1,2 @@
 ﻿--:r .\myfile.sql
-:r .\Script.PostDeployment.Signatories.sql
+:r .\Script.PostDeployment.NewSignatories.sql
