@@ -101,6 +101,9 @@
       <CopyToOutputDirectory>DoNotCopy</CopyToOutputDirectory>
     </None>
     <Build Include="Stored Procedures\UpdateUserEmailAddress.sql" />
+    <None Include="PostDeployment\Script.PostDeployment.NewSignatories.sql">
+      <CopyToOutputDirectory>DoNotCopy</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="PostDeployment\Script.PostDeployment.Initial.sql">
