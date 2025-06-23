@@ -21,6 +21,8 @@
     [DateAuthorised] DATETIME2 NULL, 
     [DateRejected] DATETIME2 NULL, 
 	[DateRevoked] DATETIME2(7) NULL,
+    [DateSuspended] DATETIME2 NULL, 
+    [DateUnsuspended] DATETIME2 NULL, 
     CONSTRAINT [FK_Application_Pet] FOREIGN KEY([PetId]) REFERENCES [dbo].[Pet] ([Id]),
 	CONSTRAINT [FK_Application_User] FOREIGN KEY([UserId]) REFERENCES [dbo].[User] ([Id]),
 	CONSTRAINT [FK_Application_Owner] FOREIGN KEY([OwnerId]) REFERENCES [dbo].[Owner] ([Id])
