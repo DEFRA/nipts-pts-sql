@@ -1,4 +1,8 @@
 ﻿GO
+UPDATE [Signatories]
+Set ValidTo = '2025-08-05'
+Where Name = 'Andrew Soldan'
+
 IF NOT EXISTS (SELECT 1 FROM Signatories WHERE Name = 'Irene Cristofaro')
 BEGIN
   INSERT INTO [dbo].[Signatories] (Id, Name, Title, ValidFrom, ValidTo, CreatedBy, CreatedOn, SignatureImage) 
