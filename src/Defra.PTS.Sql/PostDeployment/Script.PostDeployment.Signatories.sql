@@ -21,18 +21,21 @@ BEGIN
 END
 GO
 
+GO
 IF EXISTS (SELECT * FROM [dbo].[PasengerType] Where Id = 2 AND [Type] = 'Vehicle')
 BEGIN
 	UPDATE [dbo].[PasengerType] SET [Type] = 'Vehicle on ferry' WHERE Id = 2 AND [Type] = 'Vehicle'
 END
 GO
 
+GO
 IF NOT EXISTS (SELECT * FROM [dbo].[PasengerType] Where Id = 3 AND [Type] = 'Airline')
 BEGIN
 	INSERT [dbo].[PasengerType] ([Id], [Type]) VALUES (3, N'Airline')
 END
 GO
 
+GO
 IF NOT EXISTS (SELECT 1 FROM Signatories WHERE Name = 'Irene Cristofaro')
 BEGIN
   INSERT INTO [dbo].[Signatories] (Id, Name, Title, ValidFrom, ValidTo, CreatedBy, CreatedOn, SignatureImage) 
@@ -43,7 +46,7 @@ BEGIN
 END
 GO
 
--- Insert Master Data for APHA Chief Vet Officer
+GO
 IF NOT EXISTS (SELECT 1 FROM Signatories WHERE Name = 'Andrew Soldan')
 BEGIN
     INSERT INTO Signatories (ID, Name, Title, ValidFrom, ValidTo, SignatureImage, CreatedBy, CreatedOn)
@@ -58,4 +61,5 @@ BEGIN
         GETDATE()
     );
 END
+GO
 
