@@ -1,6 +1,4 @@
 ﻿
-DELETE FROM [dbo].[Signatories] WHERE [Name] = 'Irene Cristofaro';
-
 /*
 DECLARE @Base64String VARCHAR(MAX) = '';
 
