@@ -107,6 +107,9 @@
     <None Include="PostDeployment\Script.PostDeployment.RemoveOwnersEmailConstraint.sql">
       <CopyToOutputDirectory>DoNotCopy</CopyToOutputDirectory>
     </None>
+    <None Include="PostDeployment\Script.PostDeployment.UpdatingSignatories.sql">
+      <CopyToOutputDirectory>DoNotCopy</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="PostDeployment\Script.PostDeployment.Initial.sql">
