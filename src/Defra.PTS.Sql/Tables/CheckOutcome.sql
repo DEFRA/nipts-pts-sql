@@ -18,5 +18,6 @@
 	[CreatedOn] DATETIME2(7) NULL DEFAULT GETUTCDATE(),
 	[UpdatedBy] UNIQUEIDENTIFIER NULL,
 	[UpdatedOn] DATETIME2(7) NULL DEFAULT GETUTCDATE(),
+    [oiRefusedToSignDeclaration] BIT NULL, 
     FOREIGN KEY ([PassengerTypeId]) REFERENCES [dbo].[PasengerType]([Id]),
 );
