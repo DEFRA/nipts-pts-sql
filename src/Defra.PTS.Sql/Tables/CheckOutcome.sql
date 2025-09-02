@@ -6,6 +6,7 @@
     [VCNotMatchPTD] bit NULL,
     [OIFailPotentialCommercial] bit NULL,
     [OIFailAuthTravellerNoConfirmation] bit NULL,
+    [OIRefusedToSignDeclaration] BIT NULL, 
     [OIFailOther] bit NULL,
     [PassengerTypeId] int NULL,
     [RelevantComments] NVARCHAR(500) NULL, 
