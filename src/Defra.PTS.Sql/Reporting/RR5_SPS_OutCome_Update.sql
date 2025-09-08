@@ -65,8 +65,8 @@
 		  ,ISNULL(CAST((SELECT [OIFailAuthTravellerNoConfirmation] FROM [dbo].[CheckOutcome] WHERE Id = chsOuter.CheckOutcomeId) AS VARCHAR), '')  AS [GB_Authorised_traveller_no_confirmation]
 		  ,ISNULL(CAST((SELECT [OIFailAuthTravellerNoConfirmation] FROM [dbo].[CheckOutcome] WHERE Id = (SELECT [CheckOutcomeId] FROM [dbo].[CheckSummary] WHERE Id = chsOuter.LinkedCheckId AND [GBCheck] = 0)) AS VARCHAR), '') AS [NI_Authorised_traveller_no_confirmation]
 
-		  ,ISNULL(CAST((SELECT [OIRefusedToSignDeclaration] FROM [dbo].[CheckOutcome] WHERE Id = chsOuter.CheckOutcomeId) AS VARCHAR), '')  AS GB_AP_Refused_to_sign
-		  ,ISNULL(CAST((SELECT [OIRefusedToSignDeclaration] FROM [dbo].[CheckOutcome] WHERE Id = (SELECT [CheckOutcomeId] FROM [dbo].[CheckSummary] WHERE Id = chsOuter.LinkedCheckId AND [GBCheck] = 0)) AS VARCHAR), '') AS NI_AP_Refused_to_sign
+		  ,ISNULL(CAST((SELECT [OIRefusedToSignDeclaration] FROM [dbo].[CheckOutcome] WHERE Id = chsOuter.CheckOutcomeId) AS VARCHAR), '')  AS [GB_AP_Refused_to_sign]
+		  ,ISNULL(CAST((SELECT [OIRefusedToSignDeclaration] FROM [dbo].[CheckOutcome] WHERE Id = (SELECT [CheckOutcomeId] FROM [dbo].[CheckSummary] WHERE Id = chsOuter.LinkedCheckId AND [GBCheck] = 0)) AS VARCHAR), '') AS [NI_AP_Refused_to_sign]
 
 		  ,ISNULL(CAST((SELECT [OIFailOther] FROM [dbo].[CheckOutcome] WHERE Id = chsOuter.CheckOutcomeId) AS VARCHAR), '')  AS [GB_Other_Reason]
 		  ,ISNULL(CAST((SELECT [OIFailOther] FROM [dbo].[CheckOutcome] WHERE Id = (SELECT [CheckOutcomeId] FROM [dbo].[CheckSummary] WHERE Id = chsOuter.LinkedCheckId AND [GBCheck] = 0)) AS VARCHAR), '') AS [NI_Other_Reason]
@@ -127,8 +127,8 @@
 		  ,ISNULL(CAST((SELECT [OIFailAuthTravellerNoConfirmation] FROM [dbo].[CheckOutcome] WHERE Id = chsOuter.CheckOutcomeId) AS VARCHAR), '')  AS [GB_Authorised_traveller_no_confirmation]
 		  ,'' AS [NI_Authorised_traveller_no_confirmation]
 
-		  ,ISNULL(CAST((SELECT [OIRefusedToSignDeclaration] FROM [dbo].[CheckOutcome] WHERE Id = chsOuter.CheckOutcomeId) AS VARCHAR), '')  AS GB_AP_Refused_to_sign
-		  ,'' AS NI_AP_Refused_to_sign
+		  ,ISNULL(CAST((SELECT [OIRefusedToSignDeclaration] FROM [dbo].[CheckOutcome] WHERE Id = chsOuter.CheckOutcomeId) AS VARCHAR), '')  AS [GB_AP_Refused_to_sign]
+		  ,'' AS [NI_AP_Refused_to_sign]
 
 		  ,ISNULL(CAST((SELECT [OIFailOther] FROM [dbo].[CheckOutcome] WHERE Id = chsOuter.CheckOutcomeId) AS VARCHAR), '')  AS [GB_Other_Reason]
 		  ,'' AS [NI_Other_Reason]
@@ -187,8 +187,8 @@
 			  ,'' AS [GB_Authorised_traveller_no_confirmation]
 			  ,ISNULL(CAST((SELECT [OIFailAuthTravellerNoConfirmation] FROM [dbo].[CheckOutcome] WHERE Id = chsOuter.CheckOutcomeId) AS VARCHAR), '')  AS [NI_Authorised_traveller_no_confirmation]
 
-			  ,'' AS GB_AP_Refused_to_sign
-			  ,ISNULL(CAST((SELECT [OIRefusedToSignDeclaration] FROM [dbo].[CheckOutcome] WHERE Id = chsOuter.CheckOutcomeId) AS VARCHAR), '')  AS NI_AP_Refused_to_sign
+			  ,'' AS [GB_AP_Refused_to_sign]
+			  ,ISNULL(CAST((SELECT [OIRefusedToSignDeclaration] FROM [dbo].[CheckOutcome] WHERE Id = chsOuter.CheckOutcomeId) AS VARCHAR), '')  AS [NI_AP_Refused_to_sign]
 
 			  ,'' AS [GB_Other_Reason]
 			  ,ISNULL(CAST((SELECT [OIFailOther] FROM [dbo].[CheckOutcome] WHERE Id = chsOuter.CheckOutcomeId) AS VARCHAR), '')  AS [NI_Other_Reason]
